@@ -1,0 +1,224 @@
+/* Imports */
+/* These fonts can be adjusted using font-weight and font-style */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* Variables */
+:root {
+    --slateGray: #7B8E99;
+    --slateGrayLight: #d4dade;
+    --slateGrayTrans: #7b8e99BB;
+    --babyPowder: #FDFFFC;
+    --babyPowderDarker: #f5f7f4;
+    --gunmetal: #122932;
+    --gunmetalTrans: #122932AF;
+    --emerald: #33CA7F;
+    --pakistanGreen: #01411C;
+    --teaGreen: #D0F0C0;
+    --persianGreen: #50C878;
+    --columbiaBlue: #B9D9EB;
+    --skyBlue: #87CEEB;
+    --celeste: #B2FFFF;
+}
+
+/* ----- Viewport ----- */
+
+body {
+    background-color: var(--celeste);
+    color: var(--gunmetal);
+    font-family: "Mulish", sans-serif;
+    font-weight: 300;
+    margin: 5% 5%;
+}
+
+/*  ----- Page layout blocks -----  */
+header {
+    font-family: "Merriweather", serif;
+    font-size: 170%;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+main {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* ----- Navigation ----- */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 20px 0px;
+    background-color: var(--slateGray);
+    border-radius: 10px;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+nav a {
+    display: block;
+    padding: 10px 10px;
+    color: var(--gunmetal);
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: var(--persianGreen);
+    color: var(--gunmetal);
+    font-size: 20px;
+}
+
+
+
+/* ----- Table ----- */
+table {
+    width: auto;
+    margin: 20px 0px;
+    border: 1px solid var(--slateGray);
+    border-radius: 10px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead {
+    background-color: var(--columbiaBlue);
+    font-size: 110%;
+}
+
+thead tr th {
+    padding: 15px 25px;
+}
+
+/* 
+Citation for this table even styling
+Date: 2/8/2024
+Adapted from code at: 
+https://www.digitalocean.com/community/tutorials/how-to-style-a-table-with-css
+ */
+#data tbody tr:nth-child(even) {
+    background-color: var(--babyPowderDarker);
+}
+
+#data tbody tr:nth-child(odd) {
+    background-color: var(--teaGreen);
+}
+
+#data tr,
+th {
+    border: 0;
+}
+
+
+
+
+
+
+/* ----- Form ----- */
+form (even) {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form (odd) {
+    border-radius: 5px;
+    background-color: var(--teaGreen);
+    padding: 20px;
+}
+
+label {
+    background-color: var(--sandyBrownTrans);
+    font-size: 110%;
+}
+
+
+legend {
+    padding: 30px 0 10px 0;
+    font-size: larger;
+    text-align: center;
+}
+
+label {
+    display: flex;
+    padding: 20px 0px 5px 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid;
+    border-color: var(--slateGrayLight);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input:focus {
+    outline: 1px solid;
+    outline-color: var(--gunmetalTrans);
+}
+
+.btn {
+    margin: 10px 5px 10px 0;
+    font-size: 105%;
+    font-weight: bold;
+    background-color: var(--slateGrayLight);
+    width: auto;
+}
+
+.btn:hover {
+    background-color: var(--emerald);
+    border-color: var(--gunmetal);
+}
+
+.deletebtn {
+    display: flex;
+    margin: 3px;
+    border: 1px solid var(--slateGray);
+    border-radius: 5px;
+    padding: 3px;
+    background-color: var(--slateGrayLight);
+    color: var(--gunmetal);
+    font-size: smaller;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.deletebtn:hover {
+    background-color: var(--emerald);
+}
+
+.addbtn {
+    display: flex;
+    margin: 3px;
+    border: 1px solid var(--slateGray);
+    border-radius: 5px;
+    padding: 3px;
+    background-color: var(--slateGrayLight);
+    color: var(--gunmetal);
+    font-size: smaller;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.addbtn:hover {
+    background-color: var(--emerald);
+}

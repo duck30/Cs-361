@@ -1,0 +1,105 @@
+{% extends "base_layout.html" %}
+{% block title %}Search Page{% endblock %}
+{% block header %}Search Page{% endblock %}
+{% block content %}
+
+
+<h1>Pokemon Search</h1>
+<h3>
+   Search Diferent kinds of Poekmon by attribute using the search fields
+</h3>
+
+<!-- Insert new characters -->
+<section id="data">
+    <table border="1" cellpadding="5">
+      
+        <form id="searchPokemon" action="/Search" method="POST" >
+            <legend><strong>Search</strong></legend>
+            <fieldset>
+                <label for="type1">search type1 *</label>
+                    <select name="type1">
+                        <option value="null"  selected>--Select--</option>
+                    
+                        {% for item in data %}
+                            <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                        {% endfor %}
+                    </select>
+
+
+            <label for="type2">search type2 *</label>
+                <select name="type2">
+                    <option value="null"  selected>--Select--</option>
+                    <option value="0">No type2</option>
+                    {% for item in data %}
+                        <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                    {% endfor %}
+                </select>
+
+            <label for="generation">search generation *</label>
+                <select name="generation">
+                    <option value="null"  selected>--Select--</option>
+                    
+                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+            <label for="legendary">search legendary *</label>
+                <select name="legendary">
+                    <option value="null"  selected>--Select--</option>
+                    
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                        
+                </select>
+
+
+
+        </fieldset>
+        <input class="btn" type="submit" id="searchPokemon" value="Search Pokemon" name="Search_Pokemon">
+        
+    </form>
+</section>
+
+<!-- Browsing data -->
+<section id="data">
+    <table border="1" cellpadding="5">
+        {% if show %}
+        <thead>
+            <tr>
+                <th>ADD</th>
+                <!--Getting column headers for table-->
+                {% for key in show[0].keys() %}
+                <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in show %}
+            <tr>
+                <td><a href="add_search_pokemon/{{item.name}}" class="addbtn">Add</a></td>
+                <!--Getting row data for table-->                
+                {% for key in item.keys() %}
+                <td>{{ item[key] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

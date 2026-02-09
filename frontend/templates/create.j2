@@ -1,0 +1,140 @@
+{% extends "base_layout.html" %}
+{% block title %}Create Page{% endblock %}
+{% block header %}Create Page{% endblock %}
+{% block content %}
+
+
+<h1>Create</h1>
+
+<h3>
+   Create your own pokemon and make them any type by filing out the attributes.
+   Edit your pokemon at the bottom in Edit Created Pokemon Form
+</h3>
+<section id="data">
+    <table border="1" cellpadding="5">
+      
+        <form id="createPokemon" action="/Create" method="POST" >
+            <legend><strong>Create Pokemon</strong></legend>
+            <fieldset>
+
+            <label for="name">Enter Pokemon Name</label>
+                 <input type="text"  name="name"  required>
+
+
+                <label for="type1">type1 </label>
+                    <select name="type1" required>
+                        <option value="null"  selected>--Select--</option>
+                    
+                        {% for item in data %}
+                            <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                        {% endfor %}
+                    </select>
+
+
+            <label for="type2">type2 </label>
+                <select name="type2" required>
+                    <option value=""  selected>--Select--</option>
+                    <option value="">No type2</option>
+                    {% for item in data %}
+                        <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                    {% endfor %}
+                </select>
+
+            <label for="legendary">legendary *</label>
+                <select name="legendary"required>
+                    <option value="null"  selected>--Select--</option>
+                    
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                        
+                </select>
+
+
+
+        </fieldset>
+        <input class="btn" type="submit" id="createPokemon" value="Create Pokemon" name="Create_Pokemon" >
+        
+    </form>
+</section>
+<h2>
+   Your Created Pokemon
+</h2>
+
+<!-- Browsing data -->
+<section id="data">
+    <table border="1" cellpadding="5">
+        {% if show %}
+        <thead>
+            <tr>
+                
+                <th>Delete</th>
+                <!--Getting column headers for table-->
+                {% for key in show[0].keys() %}
+                <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in show %}
+            <tr>
+            
+                <td> <form action=" delete_create/{{item.name}} "  onclick="return confirm('Are you sure you want to delete the Pokemon?');"><input type="submit" class ="deletebtn" value="Delete"  ></form></td>
+                <!--Getting row data for table-->                
+                {% for key in item.keys() %}
+                <td>{{ item[key] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</section>
+
+<!-- Update Pokemon -->
+<section id="data">
+    <form method="POST" id="EditPokemon" action="/Create">
+        <legend><strong>Edit Created  Pokemon</strong></legend>
+        <fieldset>
+        <label for="name">Pokemon name</label>
+            <select name="name">
+                <option value="" >Pokemon</option>
+                {% for item in created_names %}
+                    <option value="{{item["name"]}}">{{item["name"]}}</option>
+                {% endfor %}
+            </select>
+        <label for="type1">type1</label>
+            <select name="type1" required> 
+                        <option value=""  selected>--Select--</option>
+                         <option value="">No type2</option>
+                    
+                        {% for item in data %}
+                            <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                        {% endfor %}
+                    </select>
+
+        <label for="type2">type2 </label>
+                <select name="type2" required>
+                    <option value=""  selected>--Select--</option>
+                    <option value="">No type2</option>
+                    {% for item in data %}
+                        <option value="{{item["TYPE"]}}">{{item["TYPE"]}}</option>
+                    {% endfor %}
+                </select>
+
+        <label for="legendary">legendary </label>
+                <select name="legendary" required>
+                    <option value=""  selected>--Select--</option>
+                    
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                        
+                </select>
+            
+        </fieldset>
+        <input class="btn" type="submit" id="EditPokemon" value="Edit Pokemon" name="Edit_Pokemon">
+    </form>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base_layout.html" %}
+{% block title %}Favorites Page{% endblock %}
+{% block header %}Favorites Page{% endblock %}
+{% block content %}
+
+
+
+<h1>
+    Favorite pokemon
+</h1>
+<h4>
+    *Warning clicking on delete will remove Pokemon from you list.
+    You will have to manually add the Pokemon back in.
+</h4>
+
+
+<!-- Browsing data -->
+<section id="data">
+    <table border="1" cellpadding="5" >
+        {% if favorite %}
+        <thead>
+            <tr>
+                
+                <th>Delete</th>
+                <!--Getting column headers for table-->
+                {% for key in favorite[0].keys() %}
+                <th>{{ key }}</th> 
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in favorite %}
+            <tr>
+                
+                <td> <form action=" delete_pokemon/{{item.name}} "  onclick="return confirm('Are you sure you want to delete the Pokemon?');"><input type="submit" class ="addbtn" value="Delete"  ></form></td>
+                <!--Getting row favorite for table-->                
+                {% for key in item.keys() %}
+                <td>{{ item[key] }}</td>
+                {% endfor %}
+              
+            </tr>
+            {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+  
+</section>
+
+
+
+  
+
+{% endblock %}

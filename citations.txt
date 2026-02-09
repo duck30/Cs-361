@@ -1,0 +1,13 @@
+# Citation for the following project:
+# Date: 2/8/2026
+# Copied from /OR/ Adapted from /OR/ Based on:
+# Source URL:  https://www.sqlitetutorial.net/sqlite-python/delete/
+# Source URL:  https://www.geeksforgeeks.org/python/flask-tutorial/
+# Source URL:  https://www.tutorialspoint.com/flask/flask_sqlite.htm
+# Source URL:  https://canvas.oregonstate.edu/courses/1946034/modules
+# Source URL:  https://www.w3schools.com/sql/default.asp
+# Source URL:  https://stackoverflow.com/questions/32911578/flask-confirm-action
+# Source URL:  https://canvas.oregonstate.edu/courses/1946034/pages/exploration-developing-in-flask?module_item_id=23809337
+# Source URL:  https://github.com/osu-cs340-ecampus/flask-starter-app?tab=readme-ov-file
+# Source URL: https://github.com/olivecon/cs340_group113
+# Source URL: https://www.w3schools.com/html/html_form_input_types.asp
